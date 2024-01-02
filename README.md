@@ -19,4 +19,7 @@ unzip ~/Downloads/datastrlib-main.zip
 #include "datastrlib-main/include/queues.h"
 #include "datastrlib-main/include/stacks.h"
 ```
-5. Have fun
+5. Compile with gcc
+```
+gcc -o user-project main.c -I datastrlib-main/include -L datastrlib-main/build -l:datastrlib.a
+```
