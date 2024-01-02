@@ -1,10 +1,10 @@
 #define QUEUE_IMPLEMENTATION
 #ifdef QUEUE_IMPLEMENTATION
 
-typedef struct Node {
+typedef struct NodeQ {
     int value;
     struct Node *next;
-} Node;
+} NodeQ;
 
 typedef struct {
     Node *head;

@@ -33,7 +33,7 @@ int stack_peek(Stack *stack, bool *status) {
 }
 
 void stack_push(Stack *stack, int value) {
-    Node *newNode = malloc(sizeof(Node));
+    NodeS *newNode = malloc(sizeof(Node));
     if (newNode == NULL) perror("Unsuccessfull malloc for new node!\n");
     newNode->value = value;
     newNode->next = NULL;
@@ -56,14 +56,14 @@ int stack_pop(Stack *stack, bool *status) {
 
     *status = true;
 
-    Node *oldNode = stack->tail;
+    NodeS *oldNode = stack->tail;
     int value = oldNode->value;
 
     if (stack->size == 1) {
         stack->head = NULL;
         stack->tail = NULL;
     } else {
-        Node *newTail = stack->head;
+        NodeS *newTail = stack->head;
         while (newTail->next != oldNode) {
             newTail = newTail->next;
         }
@@ -79,9 +79,9 @@ int stack_pop(Stack *stack, bool *status) {
 }
 
 void destroy_stack(Stack *stack) {
-    Node *currentNode = stack->head;
+    NodeS *currentNode = stack->head;
     while (currentNode != NULL) {
-        Node *temp = currentNode;
+        NodeS *temp = currentNode;
         currentNode = currentNode->next;
         free(temp);
     }
@@ -92,7 +92,7 @@ void stack_print(Stack *stack) {
     if (is_empty_stack(stack)) {
         printf("Print stack: Stack is empty\n");
     } else {
-        Node *currentNode = stack->head;
+        NodeS *currentNode = stack->head;
         while (currentNode != NULL) {
             printf("%d -> ", currentNode->value);
             currentNode = currentNode->next;

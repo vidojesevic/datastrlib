@@ -4,10 +4,10 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-typedef struct Node {
+typedef struct NodeS {
     int value;
     struct Node *next;
-} Node;
+} NodeS;
 
 typedef struct {
     int size;

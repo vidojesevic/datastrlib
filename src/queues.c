@@ -35,7 +35,7 @@ int queue_peek(Queue *queue, bool *status) {
 }
 
 void enqueue(Queue *queue, int value) {
-    Node *newNode = malloc(sizeof(Node));
+    NodeQ *newNode = malloc(sizeof(NodeQ));
     newNode->value = value;
     newNode->next = NULL;
 
@@ -57,7 +57,7 @@ int dequeue(Queue *queue, bool *status) {
 
     *status = true;
 
-    Node *oldNode = queue->head;
+    NodeQ *oldNode = queue->head;
     int value = oldNode->value;
 
     if (queue->size == 0) {
@@ -74,9 +74,9 @@ int dequeue(Queue *queue, bool *status) {
 }
 
 void destroy_queue(Queue *queue) {
-    Node *currentNode = queue->head;
+    NodeQ *currentNode = queue->head;
     while (currentNode != NULL) {
-        Node *temp = currentNode;
+        NodeQ *temp = currentNode;
         currentNode = currentNode->next;
         free(temp);
     }
@@ -87,7 +87,7 @@ void queue_queue(Queue *queue) {
     if (is_empty_queue(queue)) {
         printf("Queue is empty, Queue size: %d\n", queue->size);
     } else {
-        Node *currentNode = queue->head;
+        NodeQ *currentNode = queue->head;
         while (currentNode != NULL) {
             printf("%d -> ", currentNode->value);
             currentNode = currentNode->next;
