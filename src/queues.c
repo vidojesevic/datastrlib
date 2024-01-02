@@ -83,7 +83,7 @@ void destroy_queue(Queue *queue) {
     free(queue);
 }
 
-void queue_queue(Queue *queue) {
+void queue_print(Queue *queue) {
     if (is_empty_queue(queue)) {
         printf("Queue is empty, Queue size: %d\n", queue->size);
     } else {
