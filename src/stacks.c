@@ -33,7 +33,7 @@ int stack_peek(Stack *stack, bool *status) {
 }
 
 void stack_push(Stack *stack, int value) {
-    NodeS *newNode = malloc(sizeof(Node));
+    NodeS *newNode = malloc(sizeof(NodeS));
     if (newNode == NULL) perror("Unsuccessfull malloc for new node!\n");
     newNode->value = value;
     newNode->next = NULL;

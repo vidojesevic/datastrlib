@@ -2,7 +2,7 @@
 
 # Compilers flags
 CC = gcc
-CFLAGS = -g -Wall -Wextra -sdt=c11
+CFLAGS = -g -Wall -Wextra -std=c11
 
 # Directories
 SRC_DIR = src
@@ -13,7 +13,7 @@ LIB_NAME = datastrlib.a
 
 # Source files
 SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
-OBJ_FILES = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRC_FILEs))
+OBJ_FILES := $(SRC_FILES:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
 # Targets
 all: $(LIB_NAME)
@@ -21,7 +21,7 @@ all: $(LIB_NAME)
 $(LIB_NAME): $(OBJ_FILES)
 	ar rsc $(LIB_DIR)/$@ $^
 
-$(BUILD_DIR)/%.c: $(SRC_DIR)/%.c
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c -I$(INCLUDE_DIR) $< -o $@
 
 clean:
