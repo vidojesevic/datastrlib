@@ -3,12 +3,12 @@
 
 typedef struct NodeQ {
     int value;
-    struct Node *next;
+    struct NodeS *next;
 } NodeQ;
 
 typedef struct {
-    Node *head;
-    Node *tail;
+    NodeQ *head;
+    NodeQ *tail;
     int size;
 } Queue;
 

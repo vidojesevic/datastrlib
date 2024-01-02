@@ -6,13 +6,13 @@
 
 typedef struct NodeS {
     int value;
-    struct Node *next;
+    struct NodeS *next;
 } NodeS;
 
 typedef struct {
     int size;
-    Node *head;
-    Node *tail;
+    NodeS *head;
+    NodeS *tail;
 } Stack;
 
 Stack *create_stack(void);
