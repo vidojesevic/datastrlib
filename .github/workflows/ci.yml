@@ -22,5 +22,8 @@ jobs:
       - name: Build library
         run: make
 
+      - name: Test library
+        run: make test
+
       - name: Clean up
         run: make clean
