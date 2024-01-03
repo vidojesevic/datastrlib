@@ -33,7 +33,7 @@ HashMap *create_hash_map(size_t initial) {
 void hash_insert(HashMap *map, int key, const char *value) {
     size_t index = key % map->size;
 
-    NodeH *newNode = (NodeH*)malloc(sizeof(NodeH*));
+    NodeH *newNode = (NodeH*)malloc(sizeof(NodeH));
     if (newNode == NULL) {
         printf("Malloc fails on alocating newNode!\n");
         return;
