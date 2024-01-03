@@ -19,11 +19,10 @@ jobs:
           version: latest
           platform: x64
 
-      - name: Build library
-        run: make
-
-      - name: Set up criterion for testing
-        run: apt-get install libcriterion-dev
+      - name: Build and test library
+        run: |
+          make
+          make test
 
       - name: Test library
         run: make test
