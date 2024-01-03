@@ -22,6 +22,7 @@ int linked_list_size(LinkedList *list);
 bool is_empty_list(LinkedList *list);
 void linked_list_append(LinkedList *list, int value);
 void linked_list_prepend(LinkedList *list, int value);
+void destroy_linked_list(LinkedList *list);
 void linked_list_print(LinkedList *list);
 
 #endif

@@ -39,13 +39,12 @@ void linked_list_append(LinkedList *list, int value) {
 
 void linked_list_prepend(LinkedList *list, int value) {
     NodeSL *newNode = malloc(sizeof(NodeSL));
-    newNode->next = NULL;
+    newNode->next = list->head;
     newNode->value = value;
 
     if (is_empty_list(list)) {
         linked_list_append(list, value);
     } else {
-        newNode->next = list->head;
         list->head = newNode;
     }
     list->size++;
@@ -63,4 +62,14 @@ void linked_list_print(LinkedList *list) {
         }
         printf("NULL\n");
     }
+}
+
+void destroy_linked_list(LinkedList *list) {
+    NodeSL *current = list->head;
+    while (current != NULL) {
+        NodeSL *temp = current;
+        current = current->next;
+        free(temp);
+    }
+    free(list);
 }
