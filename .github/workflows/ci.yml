@@ -22,10 +22,8 @@ jobs:
       - name: Install libcriterion
         run: sudo apt-get install -y libcriterion-dev
 
-      - name: Build and test library
-        run: |
-          make
-          make test
+      - name: Build library
+        run: make
 
       - name: Test library
         run: make test
