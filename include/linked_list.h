@@ -21,7 +21,7 @@ LinkedList *create_single_linked_list(void);
 int linked_list_size(LinkedList *list);
 bool is_empty_list(LinkedList *list);
 void linked_list_append(LinkedList *list, int value);
-void linked_list_prepand(LinkedList *list, int value);
+void linked_list_prepend(LinkedList *list, int value);
 void linked_list_print(LinkedList *list);
 
 #endif

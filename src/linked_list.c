@@ -1,4 +1,4 @@
-#include "linked_list.h"
+#include "../include/linked_list.h"
 
 LinkedList *create_single_linked_list(void) {
     LinkedList *linked_list = malloc(sizeof(LinkedList));
@@ -45,8 +45,8 @@ void linked_list_prepend(LinkedList *list, int value) {
     if (is_empty_list(list)) {
         linked_list_append(list, value);
     } else {
-        NodeSL *temp = list->head;
-        list->head = temp;
+        newNode->next = list->head;
+        list->head = newNode;
     }
     list->size++;
 }
