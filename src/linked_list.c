@@ -43,9 +43,41 @@ void linked_list_prepend(LinkedList *list, int value) {
     newNode->value = value;
 
     if (is_empty_list(list)) {
-        linked_list_append(list, value);
+        list->head = newNode;
+        list->tail = newNode;
     } else {
         list->head = newNode;
+    }
+    list->size++;
+}
+
+void linked_list_insert(LinkedList *list, int value, int position) {
+    if (position < 0 || position > linked_list_size(list)) {
+        printf("Position cannot be less that 0 or greater that list size!\n");
+        return;
+    } else {
+        NodeSL *newNode = malloc(sizeof(NodeSL));
+        newNode->value = value;
+        newNode->next = NULL;
+
+        if (position == 0) {
+            newNode->next = list->head;
+            list->head = newNode;
+        } else if (position == linked_list_size(list)) {
+            list->tail->next = newNode;
+            list->tail = newNode;
+        } else {
+            NodeSL *current = list->head;
+
+            for (int i = 0; i <= position; ++i) {
+                if (i == position - 1) {
+                    newNode->next = current->next;
+                    current->next = newNode;
+                }
+                current = current->next;
+            }
+        }
+
     }
     list->size++;
 }
