@@ -87,13 +87,30 @@ void linked_list_print(LinkedList *list) {
         printf("Cannot print empty list!\n");
     } else {
         NodeSL *current = list->head;
-        printf("Linked List:\n");
         while (current != NULL) {
             printf("%d -> ", current->value);
             current = current->next;
         }
         printf("NULL\n");
     }
+}
+
+void linked_list_reverse(LinkedList *list) {
+    if (is_empty_list(list)) {
+        printf("List is empty!\n");
+        return;
+    }
+    NodeSL *current = list->head;
+    NodeSL *prev = NULL;
+    NodeSL *next = NULL;
+    while (current != NULL) {
+        next = current->next;
+        current->next = prev;
+
+        prev = current;
+        current = next;
+    }
+    list->head = prev;
 }
 
 void destroy_linked_list(LinkedList *list) {
