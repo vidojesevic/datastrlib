@@ -113,6 +113,104 @@ void linked_list_reverse(LinkedList *list) {
     list->head = prev;
 }
 
+void linked_list_remove_by_value(LinkedList *list, int value) {
+    if (is_empty_list(list)) {
+        printf("List is empty!\n");
+        return;
+    }
+    NodeSL *current = list->head;
+    NodeSL *prev = NULL;
+    while (current) {
+        if (current->value == value) {
+            if (prev == NULL) {
+                list->head = current->next;
+            } else {
+                prev->next = current->next;
+            }
+
+            list->size--;
+            free(current);
+            return;
+        }
+        prev = current;
+        current = current->next;
+    }
+
+    printf("There is no %d value in linked list!\n", value);
+}
+
+void linked_list_remove_by_index(LinkedList *list, int index) {
+    if (is_empty_list(list)) {
+        printf("List is empty!\n");
+        return;
+    }
+    if (index > list->size || index < 0) {
+        printf("Index must be in range of 0 - list-size!\n");
+        return;
+    }
+    NodeSL *current = list->head;
+    NodeSL *prev = NULL;
+    int count = 0;
+    while (current) {
+        if (count == index) {
+            if (index == 0) {
+                list->head = current->next;
+            } else {
+                prev->next = current->next;
+            }
+
+            list->size--;
+            free(current);
+            return;
+        }
+        count++;
+        prev = current;
+        current = current->next;
+    }
+}
+
+/* Search for index of value in linked list */
+int linked_list_search_by_value(LinkedList *list, int value) {
+    if (is_empty_list(list)) {
+        printf("List is empty!\n");
+        return -1;
+    }
+    int index = 0;
+    int count = 0;
+    NodeSL *current = list->head;
+    while (current) {
+        if (current->value == value) {
+            index = count;
+        }
+        count++;
+        current = current->next;
+    }
+    return index;
+}
+
+int linked_list_search_by_index(LinkedList *list, int index) {
+    if (is_empty_list(list)) {
+        printf("List is empty!\n");
+        return -1;
+    }
+    if (index > list->size || index < 0) {
+        printf("Index must be in range of 0 - list-size!\n");
+        return -1;
+    }
+    NodeSL *current = list->head;
+    int count = 0;
+    while (current) {
+        if (count == index) {
+            return current->value;
+        }
+        count++;
+        current = current->next;
+    }
+    printf("There is no value found!\n");
+    return -1;
+}
+
+/* Destroy linked list at the end of the program */
 void destroy_linked_list(LinkedList *list) {
     NodeSL *current = list->head;
     while (current != NULL) {
