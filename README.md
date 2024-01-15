@@ -32,16 +32,37 @@ If you want to contribute to a project and make it better, your help is very wel
 2. Clone the fork on your local machine.
 3. Add the original repository as a remote called `upstream`.
 4. Create a new branch to work on!
-5. Make changes
+```
+git checkout -b feature origin/feature
+```
+6. Develop feature
+- If you are developing feature, create src/feature.c and include/feature.h. Those 2 files must be clean and containing only code related to feature
+- You can use custom main.c for testing your feature and don't forget to add that file inside .gitignore
+- Compile your changes
+```
+make clean
+make
+```
+- Compile test program
+```
+gcc -o user-project main.c -I include -L build -l:datastrlib.a
+```
+7. Create test cases
+- Inside of tests/unit directory, create test cases for your work. After doing that run:
+```
+make test
+```
+8. Make changes
+- If your tests passed, you can make changes:
 ```
 git add .
 git commit -m "Feature/Bugfix" -m "- Your meaningful commit message"
 git push origin feature-or-fix-name
 ```
-6. Create pull request
+9. Create pull request
 - Before submitting the pull request, ensure your fork is in sync with the upstream
-7. Wait for code rewiew
-8. Happy coding!
+10. Code rewiew
+  - Wait for code review and happy codding!
   
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
