@@ -48,7 +48,7 @@ make
 gcc -o user-project main.c -I include -L build -l:datastrlib.a
 ```
 7. Create test cases
-- Inside of tests/unit directory, create test cases for your work. After doing that run:
+- Inside of tests/unit directory, create test cases for your work and run:
 ```
 make test
 ```
