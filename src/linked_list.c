@@ -1,5 +1,6 @@
 #include "../include/linked_list.h"
 
+/* Create linked list | Don't forget to destroy list! */
 LinkedList *create_single_linked_list(void) {
     LinkedList *linked_list = malloc(sizeof(LinkedList));
     if (linked_list == NULL) {
@@ -14,14 +15,17 @@ LinkedList *create_single_linked_list(void) {
     return linked_list;
 }
 
+/* Get size of linked list */
 int linked_list_size(LinkedList *list) {
     return list->size;
 }
 
+/* Check if the list is empty */
 bool is_empty_list(LinkedList *list) {
     return list->size == 0 ? true : false;
 }
 
+/* Insert element in linked list at the end of the list */
 void linked_list_append(LinkedList *list, int value) {
     NodeSL *newNode = malloc(sizeof(NodeSL));
     newNode->next = NULL;
@@ -37,6 +41,7 @@ void linked_list_append(LinkedList *list, int value) {
     list->size++;
 }
 
+/* Insert item in linked list at the beginning of the list */
 void linked_list_prepend(LinkedList *list, int value) {
     NodeSL *newNode = malloc(sizeof(NodeSL));
     newNode->next = list->head;
@@ -51,6 +56,7 @@ void linked_list_prepend(LinkedList *list, int value) {
     list->size++;
 }
 
+/* Insert item in linked list at position */
 void linked_list_insert(LinkedList *list, int value, int position) {
     if (position < 0 || position > linked_list_size(list)) {
         printf("Position cannot be less that 0 or greater that list size!\n");
@@ -82,6 +88,7 @@ void linked_list_insert(LinkedList *list, int value, int position) {
     list->size++;
 }
 
+/* Print linked list */
 void linked_list_print(LinkedList *list) {
     if (is_empty_list(list)) {
         printf("Cannot print empty list!\n");
@@ -95,6 +102,7 @@ void linked_list_print(LinkedList *list) {
     }
 }
 
+/* Reverse linked list */
 void linked_list_reverse(LinkedList *list) {
     if (is_empty_list(list)) {
         printf("List is empty!\n");
@@ -113,6 +121,7 @@ void linked_list_reverse(LinkedList *list) {
     list->head = prev;
 }
 
+/* Remove item from linked list by value */
 void linked_list_remove_by_value(LinkedList *list, int value) {
     if (is_empty_list(list)) {
         printf("List is empty!\n");
@@ -139,6 +148,7 @@ void linked_list_remove_by_value(LinkedList *list, int value) {
     printf("There is no %d value in linked list!\n", value);
 }
 
+/* Remove item from linked list by index */
 void linked_list_remove_by_index(LinkedList *list, int index) {
     if (is_empty_list(list)) {
         printf("List is empty!\n");
@@ -188,6 +198,7 @@ int linked_list_search_by_value(LinkedList *list, int value) {
     return index;
 }
 
+/* Search item in linked list by index */
 int linked_list_search_by_index(LinkedList *list, int index) {
     if (is_empty_list(list)) {
         printf("List is empty!\n");
