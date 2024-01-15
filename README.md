@@ -40,6 +40,8 @@ git push origin feature-or-fix-name
 ```
 6. Create pull request
 - Before submitting the pull request, ensure your fork is in sync with the upstream
-
+7. Wait for code rewiew
+8. Happy coding!
+  
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
