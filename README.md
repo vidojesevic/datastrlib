@@ -24,7 +24,7 @@ unzip ~/Downloads/datastrlib-main.zip
 gcc -o user-project main.c -I datastrlib-main/include -L datastrlib-main/build -l:datastrlib.a
 ```
 ## Contributing
-If you want to contribute to a project and make it better, your help is very welcome. Here is few
+If you want to contribute to a project and make it better, your help is very welcome. Here is few guidelines to follow:
 
 ### How to make a clean pull request
 
