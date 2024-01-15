@@ -35,10 +35,10 @@ If you want to contribute to a project and make it better, your help is very wel
 ```
 git checkout -b feature origin/feature
 ```
-6. Develop feature
-- If you are developing feature, create src/feature.c and include/feature.h. Those 2 files must be clean and containing only code related to feature
-- You can use custom main.c for testing your feature and don't forget to add that file inside .gitignore
-- Compile your changes
+6. Develop new data structure
+- If you are developing new data structure, create src/data_structure_name.c and include/data_strucrute_name.h. Those 2 files must be clean and containing only code related to that data structure.
+- You can use custom main.c for testing your feature and don't forget to add that file inside .gitignore.
+- Compile your changes:
 ```
 make clean
 make
